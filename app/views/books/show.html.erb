@@ -56,11 +56,12 @@
             <tr>
               <td> <%= link_to user_path(@user.id) do %><%= image_tag @user.get_profile_image(100,100) %>
               <%= @user.name %><% end %></td>
-
               <td><%= @book.title %></td>
               <td><%= @book.body %></td>
+               <% if @user.id == current_user.id %>
                <td class="btn btn-sm btn-success"><%= link_to "Edit", edit_book_path(@book) %></td>
                <td class="btn btn-sm btn-danger"><%= link_to "Destroy",book_path(@book),method: :delete %></td>
+               <% end %>
             </tr>
             </tbody>
           </table>
